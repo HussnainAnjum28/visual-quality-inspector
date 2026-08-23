@@ -1,0 +1,29 @@
+# Virtual environment
+venv/
+env/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Pytest cache
+.pytest_cache/
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Large data files (optional - dataset not committed)
+data/raw/
+data/processed/
+
+# Streamlit
+.streamlit/
+
+# IDE
+.vscode/
+.idea/
