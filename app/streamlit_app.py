@@ -37,7 +37,6 @@ html, body, [class*="css"] {
     font-family: 'Inter', sans-serif;
 }
 
-/* Header */
 .main-header {
     background: linear-gradient(135deg, #1e1b4b 0%, #312e81 45%, #4c1d95 100%);
     padding: 3rem 2.5rem;
@@ -100,7 +99,6 @@ html, body, [class*="css"] {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Cards */
 .glass-card {
     background: rgba(255, 255, 255, 0.035);
     backdrop-filter: blur(12px);
@@ -144,7 +142,6 @@ html, body, [class*="css"] {
     margin: 0;
 }
 
-/* Status badges */
 .status-badge {
     display: inline-flex;
     align-items: center;
@@ -176,7 +173,6 @@ html, body, [class*="css"] {
     100% { box-shadow: 0 0 0 0 rgba(248,113,113,0); }
 }
 
-/* Metric containers */
 .metric-container {
     text-align: center;
     padding: 1.4rem 1rem;
@@ -203,7 +199,6 @@ html, body, [class*="css"] {
     font-weight: 500;
 }
 
-/* Section titles */
 .section-title {
     font-size: 1.05rem;
     font-weight: 600;
@@ -223,7 +218,6 @@ html, body, [class*="css"] {
     vertical-align: middle;
 }
 
-/* Upload box */
 [data-testid="stFileUploader"] {
     border: 1.5px dashed rgba(124, 58, 237, 0.35);
     border-radius: 16px;
@@ -235,7 +229,6 @@ html, body, [class*="css"] {
     background: rgba(124, 58, 237, 0.04);
 }
 
-/* Tabs */
 .stTabs [data-baseweb="tab-list"] {
     gap: 6px;
 }
@@ -246,12 +239,10 @@ html, body, [class*="css"] {
     font-size: 0.92rem;
 }
 
-/* Progress bars */
 .stProgress > div > div > div > div {
     background: linear-gradient(90deg, #a78bfa, #7c3aed);
 }
 
-/* Pipeline strip */
 .pipeline-strip {
     text-align: center;
     font-weight: 500;
@@ -261,7 +252,6 @@ html, body, [class*="css"] {
     line-height: 2.2;
 }
 
-/* Footer */
 .footer-note {
     text-align: center;
     color: rgba(255,255,255,0.35);
@@ -419,7 +409,24 @@ with tab2:
                 return av.VideoFrame.from_ndarray(img, format="bgr24")
 
         RTC_CONFIGURATION = {
-            "iceServers": [{"urls": ["stun:stun.l.google.com:19302"]}]
+            "iceServers": [
+                {"urls": ["stun:stun.l.google.com:19302"]},
+                {
+                    "urls": ["turn:openrelay.metered.ca:80"],
+                    "username": "openrelayproject",
+                    "credential": "openrelayproject",
+                },
+                {
+                    "urls": ["turn:openrelay.metered.ca:443"],
+                    "username": "openrelayproject",
+                    "credential": "openrelayproject",
+                },
+                {
+                    "urls": ["turn:openrelay.metered.ca:443?transport=tcp"],
+                    "username": "openrelayproject",
+                    "credential": "openrelayproject",
+                },
+            ]
         }
 
         ctx = webrtc_streamer(
