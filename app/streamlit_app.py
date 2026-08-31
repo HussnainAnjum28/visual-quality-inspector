@@ -393,9 +393,9 @@ with tab2:
     elif input_method == "Take Photo":
         uploaded_file = st.camera_input("Take a photo of the product surface")
 
-    else:  # Live Camera Feed
-            st.caption("Live feed shows the raw camera stream. Click Capture & Analyze to run inspection on the current frame.")
-            st.caption("⚡ Experimental feature — real-time WebRTC connection reliability depends on your network. If it doesn't connect, use 'Take Photo' instead for the same live-camera inspection experience.")
+    else:
+        st.caption("Live feed shows the raw camera stream. Click Capture & Analyze to run inspection on the current frame.")
+        st.caption("Experimental feature. If the live connection does not work, use Take Photo instead.")
 
         lock = threading.Lock()
 
@@ -419,11 +419,6 @@ with tab2:
                 },
                 {
                     "urls": ["turn:openrelay.metered.ca:443"],
-                    "username": "openrelayproject",
-                    "credential": "openrelayproject",
-                },
-                {
-                    "urls": ["turn:openrelay.metered.ca:443?transport=tcp"],
                     "username": "openrelayproject",
                     "credential": "openrelayproject",
                 },
