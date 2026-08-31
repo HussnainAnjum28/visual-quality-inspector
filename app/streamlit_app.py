@@ -395,7 +395,7 @@ with tab2:
 
     else:  # Live Camera Feed
              st.caption("Live feed shows the raw camera stream. Click Capture & Analyze to run inspection on the current frame.")
-        st.caption("⚡ Experimental feature — real-time WebRTC connection reliability depends on your network. If it doesn't connect, use 'Take Photo' instead for the same live-camera inspection experience.")
+             st.caption("⚡ Experimental feature — real-time WebRTC connection reliability depends on your network. If it doesn't connect, use 'Take Photo' instead for the same live-camera inspection experience.")
 
         lock = threading.Lock()
 
